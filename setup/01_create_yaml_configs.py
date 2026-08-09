@@ -1,19 +1,18 @@
-from databricks.connect import DatabricksSession
-from databricks.sdk import WorkspaceClient
-
-# spark セッション（処理はクラスタ上で実行される）
-spark = DatabricksSession.builder.getOrCreate()
-
-# dbutils（fs, secrets などが使える）
-dbutils = WorkspaceClient().dbutils
-
 # Databricks notebook source
 # ============================================================
-# Notebook: 01_create_yaml_configs
-# 目的: クライアントごとのスキーマ定義YAMLを作成
+# Notebook: setup/01_create_yaml_configs
+# 目的: クライアントごとのスキーマ定義YAMLを Volume に配置する。
+#       pyspark版・dlt版どちらのパイプラインでも共通の前提セットアップ。
 # ============================================================
 
 # COMMAND ----------
+
+# --- ローカル実行用セットアップ (Databricks上では不要) ---
+from databricks.connect import DatabricksSession
+from databricks.sdk import WorkspaceClient
+
+spark = DatabricksSession.builder.getOrCreate()
+dbutils = WorkspaceClient().dbutils
 
 volume_path = "/Volumes/demo_catalog/data_engineering/raw_files"
 
@@ -124,6 +123,6 @@ print("✅ B社 YAML設定を作成しました")
 
 # COMMAND ----------
 
-# 確認
-for f in dbutils.fs.ls(f"{volume_path}/company_a/"):
+# --- 確認 ---
+for f in dbutils.fs.ls(f"{volume_path}/configs/"):
     print(f.name, f.size)

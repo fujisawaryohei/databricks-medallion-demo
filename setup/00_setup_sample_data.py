@@ -1,17 +1,18 @@
+# Databricks notebook source
+# ============================================================
+# Notebook: setup/00_setup_sample_data
+# 目的: Unity Catalog に Volume を作成し、サンプルCSVを配置する。
+#       pyspark版・dlt版どちらのパイプラインでも共通の前提セットアップ。
+# ============================================================
+
+# COMMAND ----------
+
+# --- ローカル実行用セットアップ (Databricks上では不要) ---
 from databricks.connect import DatabricksSession
 from databricks.sdk import WorkspaceClient
 
-# spark セッション（処理はクラスタ上で実行される）
 spark = DatabricksSession.builder.getOrCreate()
-
-# dbutils（fs, secrets などが使える）
 dbutils = WorkspaceClient().dbutils
-
-# Databricks notebook source
-# ============================================================
-# Notebook: 00_setup_sample_data
-# 目的: サンプルのクライアントデータをVolumesにアップロード
-# ============================================================
 
 # COMMAND ----------
 
@@ -54,6 +55,6 @@ print("✅ サンプルデータを Volumes に配置しました")
 
 # COMMAND ----------
 
-# 確認
+# --- 確認 ---
 for f in dbutils.fs.ls(f"{volume_path}/company_a/"):
     print(f.name, f.size)
