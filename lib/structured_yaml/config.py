@@ -1,11 +1,11 @@
 """YAML設定のパースと、Sparkスキーマの動的生成。
 
-I/O (ファイル読み取り) は実行コンテキストで異なる (ローカルは dbutils、
-Pipelineは open) ため、ここには「文字列 → dict」「dict → StructType」の
-純ロジックだけを置き、実際の読み取りは呼び出し側 (Notebook/Pipeline) が行う。
+I/O(ファイル読み取り)は実行コンテキストで異なる(ローカルは dbutils、
+Pipelineは open)ため、ここには「文字列 → dict」「dict → StructType」の
+純ロジックだけを置き、実際の読み取りは呼び出し側(Notebook/Pipeline)が行う。
 """
 
-import yaml
+import yaml  # type: ignore[import]
 from pyspark.sql.types import StringType, StructField, StructType
 
 # PERMISSIVEモードで不良行を隔離するためのカラム名
@@ -13,7 +13,7 @@ CORRUPT_COLUMN = "_corrupt"
 
 
 def parse_yaml_config(content: str) -> dict:
-    """YAML文字列を dict にパースする (純関数)。"""
+    """YAML文字列を dict にパースする(純関数)。"""
     return yaml.safe_load(content)
 
 

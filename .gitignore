@@ -1,2 +1,17 @@
-
+# Databricks
 .databricks
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# 仮想環境 / uv
+.venv/
+
+# ローカル設定
+.env

@@ -1,0 +1,9 @@
+{
+  "extraPaths": ["."],
+  "reportMissingImports": "none",
+  "reportMissingModuleSource": "none",
+  "reportUndefinedVariable": "none",
+  "reportAttributeAccessIssue": "none",
+  "reportCallIssue": "none",
+  "exclude": ["**/__pycache__", ".venv"]
+}

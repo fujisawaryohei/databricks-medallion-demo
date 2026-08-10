@@ -1,8 +1,8 @@
 # Databricks notebook source
 # ============================================================
-# Notebook: setup/00_setup_sample_data
+# Notebook: structured_yaml/setup/00_setup_sample_data
 # 目的: Unity Catalog に Volume を作成し、サンプルCSVを配置する。
-#       pyspark版・dlt版どちらのパイプラインでも共通の前提セットアップ。
+#       pyspark版・declarative版どちらのパイプラインでも共通の前提セットアップ。
 # ============================================================
 
 # COMMAND ----------
