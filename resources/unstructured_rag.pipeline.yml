@@ -1,0 +1,22 @@
+resources:
+  pipelines:
+    unstructured_rag:
+      name: unstructured_rag_pipeline
+
+      catalog: ${var.catalog}
+      target: ${var.schema}
+
+      libraries:
+        - notebook:
+            path: ../pipelines/unstructured_rag/declarative/02_ingest_to_bronze.py
+
+      serverless: true
+      continuous: false
+      development: true
+      photon: true
+
+      channel: current
+
+      permissions:
+        - level: CAN_VIEW
+          group_name: users

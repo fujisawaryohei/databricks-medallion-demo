@@ -5,6 +5,17 @@
 bundle:
   name: databricks-medallion-demo
 
+include:
+  - resources/*.yml
+
+variables:
+  catalog:
+    description: Unity Catalog name
+    default: demo_catalog
+  schema:
+    description: Schema name for pipeline output
+    default: rag
+
 targets:
   dev:
     mode: development

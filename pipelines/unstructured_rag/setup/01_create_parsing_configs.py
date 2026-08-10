@@ -1,4 +1,8 @@
 # Databricks notebook source
+# /// script
+# [tool.databricks.environment]
+# environment_version = "5"
+# ///
 # ============================================================
 # Notebook: unstructured_rag/setup/01_create_parsing_configs
 # 目的: パーサー/チャンキング/権限メタの設定YAMLを Volume に配置する。
