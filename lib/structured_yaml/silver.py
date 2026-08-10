@@ -1,8 +1,8 @@
-"""シルバー層の変換ロジック (純関数)。
+"""シルバー層の変換ロジック(純関数)。
 
 各 transform_* は「クレンジング済み(_corrupt除外済み)の DataFrame と config」を
-受け取り、CDM (共通データモデル) 形式の DataFrame を返す。
-_corrupt の除外は呼び出し側で行う (命令的版は .where、宣言的版は @dlt.expect)。
+受け取り、CDM(共通データモデル)形式の DataFrame を返す。
+_corrupt の除外は呼び出し側で行う(命令的版は .where、宣言的版は @dp.expect)。
 """
 
 from pyspark.sql import DataFrame
@@ -16,7 +16,7 @@ from pyspark.sql.functions import (
 )
 from pyspark.sql.types import IntegerType
 
-# 全クライアント共通の最終列セット (CDM)
+# 全クライアント共通の最終列セット(CDM)
 CDM_COLUMNS = [
     "employee_id",
     "base_salary",

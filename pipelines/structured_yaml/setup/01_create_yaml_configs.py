@@ -1,8 +1,7 @@
 # Databricks notebook source
 # ============================================================
-# Notebook: setup/01_create_yaml_configs
+# Notebook: structured_yaml/setup/01_create_yaml_configs
 # 目的: クライアントごとのスキーマ定義YAMLを Volume に配置する。
-#       pyspark版・dlt版どちらのパイプラインでも共通の前提セットアップ。
 # ============================================================
 
 # COMMAND ----------
@@ -29,7 +28,6 @@ source:
     header: "true"
     encoding: "UTF-8"
 
-# スキーマ定義: Spark StructType JSON形式
 schema:
   type: struct
   fields:
@@ -46,14 +44,12 @@ schema:
       type: date
       nullable: true
 
-# ブロンズ → シルバー変換時のカラムマッピング
 column_mapping:
   Emp_No: employee_id
   BasePay: base_salary
   Department: department
   JoinDate: join_date
 
-# 権限メタデータ (AI Search用の土台)
 permission_metadata:
   allowed_roles:
     - analyst
@@ -99,7 +95,6 @@ column_mapping:
   "部門": department
   "入社日": join_date
 
-# B社固有の変換ルール
 transformations:
   base_salary:
     - strip_chars: "¥,"

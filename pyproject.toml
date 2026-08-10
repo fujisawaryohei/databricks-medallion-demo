@@ -6,6 +6,8 @@ readme = "README.md"
 requires-python = ">=3.12,<3.13"
 dependencies = [
     "databricks-connect==16.4.*",
+    "pypdf>=6.15.0",
+    "python-pptx>=1.0.2",
     "pyyaml>=6.0.3",
 ]
 
